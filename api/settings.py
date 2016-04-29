@@ -15,7 +15,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
-from django.conf.global_settings import gettext_noop
+from django.conf.global_settings import gettext_noop, DATE_INPUT_FORMATS,\
+    DATE_FORMAT
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -118,21 +119,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATE_FORMAT = ('d/m/Y')
+DATE_INPUT_FORMATS = ('%d/%m/%Y',)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 
-DATE_FORMAT = ('d/m/Y')
-DATE_INPUT_FORMATS = ('%d/%m/%Y',)
-
 REST_FRAMEWORK = {
-   # Use Django's standard `django.contrib.auth` permissions,
-   # or allow read-only access for unauthenticated users.
-   'DEFAULT_PERMISSION_CLASSES': [
-       'rest_framework.permissions.AllowAny'
-   ],
-   'DATE_FORMAT': ('%d/%m/%Y'),
-   'DATE_INPUT_FORMATS': ('%d/%m/%Y',)
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+    'DATE_FORMAT': ('%d/%m/%Y'),
+    'DATE_INPUT_FORMATS': ('%d/%m/%Y',)
 }
