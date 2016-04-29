@@ -21,22 +21,18 @@ from todos.models.todo import Todo
 from todos.views.TodoSerializer import TodoSerializer
 from api.views.hello import HelloWorld
 from api.views.adiciona_todo import AdicionaTodo
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+from todos.views.manter_todos import TodoViewSet
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'todos', UserViewSet)
+router.register(r'todos', TodoViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^', include(router.urls)),
-    url(r'^', HelloWorld, name='HelloWorld'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(router.urls)),
+    url(r'^$', HelloWorld, name='HelloWorld'),
     url(r'^add/$', AdicionaTodo, name='AdicionaTodo'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
