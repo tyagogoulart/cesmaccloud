@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'todos',
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,12 +100,8 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'todo_db',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'todo',
     }
 }
 
@@ -126,10 +124,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+DATE_FORMAT = ('d/m/Y')
+DATE_INPUT_FORMATS = ('%d/%m/%Y',)
+
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+   # Use Django's standard `django.contrib.auth` permissions,
+   # or allow read-only access for unauthenticated users.
+   'DEFAULT_PERMISSION_CLASSES': [
+       'rest_framework.permissions.AllowAny'
+   ],
+   'DATE_FORMAT': ('%d/%m/%Y'),
+   'DATE_INPUT_FORMATS': ('%d/%m/%Y',)
 }
