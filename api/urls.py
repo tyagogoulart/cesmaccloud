@@ -20,6 +20,7 @@ from rest_framework import routers, serializers, viewsets
 from todos.models.todo import Todo
 from todos.views.TodoSerializer import TodoSerializer
 from api.views.hello import HelloWorld
+from api.views.adiciona_todo import AdicionaTodo
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
@@ -36,5 +37,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^', include(router.urls)),
     url(r'^', HelloWorld, name='HelloWorld'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^add/$', AdicionaTodo, name='AdicionaTodo'),
 ]
