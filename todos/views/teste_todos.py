@@ -35,3 +35,11 @@ class TesteListarTodo(APITestCase):
     def teste_listar_todos_all(self):
         response = self.client.get('/todos/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+class TesteModificarTodo(APITestCase):
+    def setUp(self):
+        self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
+        
+    def teste_modificar_todo(self):
+        response = self.client.put('/todos/1/', {'descricao': 'teste modificado', 'data': '22/05/2016'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
