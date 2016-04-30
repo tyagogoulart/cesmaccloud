@@ -14,3 +14,11 @@ class TesteCriarTodo(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Todo.objects.count(), 1)
         self.assertEqual(Todo.objects.get().descricao, 'teste')
+        
+class TesteDeletarTodo(APITestCase):
+    def setUp(self):
+        self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
+        
+    def teste_deletar_todo(self):
+        response = self.client.delete('/todos/1/', content_type='application/json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
