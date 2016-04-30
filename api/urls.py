@@ -31,8 +31,9 @@ router.register(r'todos', TodoViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(router.urls)),
-    url(r'^$', HelloWorld, name='HelloWorld'),
+    #url(r'^api/', include(router.urls)),
+    url(r'^', include(router.urls)),
+    #url(r'^$', HelloWorld, name='HelloWorld'),
     url(r'^add/$', AdicionaTodo, name='AdicionaTodo'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

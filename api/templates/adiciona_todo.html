@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    <form method="POST" action="/api/todos/" enctype="multipart/form-data" novalidate>
+    <form method="POST" action="/todos/" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
         <input type="text" name="descricao" />
         <input type="text" name="data" />

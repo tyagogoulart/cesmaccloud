@@ -57,7 +57,6 @@ INSTALLED_APPS = (
     'rest_framework',
     'todos',
     'api',
-#     'teste'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -135,5 +134,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ],
     'DATE_FORMAT': ('%d/%m/%Y'),
-    'DATE_INPUT_FORMATS': ('%d/%m/%Y',)
+    'DATE_INPUT_FORMATS': ('%d/%m/%Y',),
+    'DATETIME_FORMAT': ('%d/%m/%Y',),
+    'DATETIME_INPUT_FORMATS': ('%d/%m/%Y',)
 }
