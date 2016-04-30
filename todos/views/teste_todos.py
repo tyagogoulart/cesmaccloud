@@ -22,3 +22,16 @@ class TesteDeletarTodo(APITestCase):
     def teste_deletar_todo(self):
         response = self.client.delete('/todos/1/', content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+class TesteListarTodo(APITestCase):
+    def setUp(self):
+        self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
+        
+    def teste_listar_todo(self):
+        response = self.client.get('/todos/', args=[self.todo.id])
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(Todo.objects.get().descricao, 'teste')
+        
+    def teste_listar_todos_all(self):
+        response = self.client.get('/todos/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
