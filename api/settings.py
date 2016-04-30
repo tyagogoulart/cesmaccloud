@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'todos',
     'api',
+#     'teste'
 )
 
 MIDDLEWARE_CLASSES = (
