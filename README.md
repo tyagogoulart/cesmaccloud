@@ -1,11 +1,9 @@
 # cesmaccloud
 ## Requirements
-  1. Install Python.
-  2. Install django rest framework
-
-#### Installing Django rest framework
-* Install using `pip`
+  * Isntalling the project dependencies using `pip`:
 
 ```
-pip install djangorestframework
+pip install -r requirements.txt
 ```
+
+## Endpoints
