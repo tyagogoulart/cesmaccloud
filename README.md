@@ -8,6 +8,8 @@ pip install -r requirements.txt
 
 ## Endpoints
 #### Adding todos
+**Method: POST**
+
 **URL:**
 ```
   localhost:8000/todos/
