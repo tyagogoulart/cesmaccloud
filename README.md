@@ -10,11 +10,10 @@ pip install -r requirements.txt
 #### Adding todos
 **URL:**
 ```
- localhost:8000/add/
- localhost:8000/api/todos/
+  localhost:8000/todos/
 ```
 
-**Boddy:**
+**Body:**
 ```
 {
     "descricao": "",
