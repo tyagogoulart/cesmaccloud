@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.http.response import HttpResponse
 
 def HelloWorld(request):

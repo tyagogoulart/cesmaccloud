@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from rest_framework import routers, serializers, viewsets
 from todos.models.todo import Todo
 
