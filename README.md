@@ -32,7 +32,7 @@ Method: **POST**
 }
 ```
 
-#### Todo List
+#### Todo List (all todos)
 Method: **GET**
 
 **URL:**
