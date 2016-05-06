@@ -4,8 +4,12 @@ from rest_framework.test import APITestCase
 from todos.models.todo import Todo
 from django.contrib.auth.models import User
 from todos.views.TodoSerializer import TodoSerializer
-
 class TesteCriarTodo(APITestCase):
+    """
+    Classe de testes do método HTTP POST da API de TODO's, 
+    utilizado para criar uma novo todo.
+    """
+    
     def setUp(self):
         self.data = {'descricao': 'teste', 'data': '30/04/2016'}
         
@@ -14,8 +18,13 @@ class TesteCriarTodo(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Todo.objects.count(), 1)
         self.assertEqual(Todo.objects.get().descricao, 'teste')
-        
+
 class TesteDeletarTodo(APITestCase):
+    """
+    Classe de testes do método HTTP DELETE da API de TODO's, 
+    utilizado para remover uma todo.
+    """
+    
     def setUp(self):
         self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
         
@@ -24,6 +33,12 @@ class TesteDeletarTodo(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 class TesteListarTodo(APITestCase):
+    """
+    Classe de testes do método HTTP GET da API de TODO's, 
+    utilizado para listar todas as todos cadastradas (teste_listar_todos_all) 
+    ou uma todo específica (teste_listar_todo).
+    """
+    
     def setUp(self):
         self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
         
@@ -37,6 +52,11 @@ class TesteListarTodo(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 class TesteModificarTodo(APITestCase):
+    """
+    Classe de testes do método HTTP PUT da API de TODO's, 
+    utilizado para modificar uma todo.
+    """
+    
     def setUp(self):
         self.todo = Todo.objects.create(descricao='teste', data='20/05/2016')
         
