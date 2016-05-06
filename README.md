@@ -60,3 +60,45 @@ Method: **GET**
    }
  ]
 ```
+
+#### Getting a specific todo
+Method: **GET**
+
+**URL:**
+```
+  localhost:8000/todos/1
+```
+
+**Response:**
+```
+{
+       "id": 1,
+       "descricao": "Teste 1",
+       "data": "01/01/2016"
+}
+```
+
+#### Updating a specific todo
+Method: **PUT**
+
+**URL:**
+```
+  localhost:8000/todos/1
+```
+
+**Body:**
+```
+{
+    "descricao": "Teste 1",
+    "data": "01/01/2016"
+}
+```
+
+**Response:**
+```
+{
+       "id": 1,
+       "descricao": "Teste 1 MODIFICADO",
+       "data": "01/01/2016"
+}
+```
