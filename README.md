@@ -8,7 +8,7 @@ pip install -r requirements.txt
 
 ## Endpoints
 #### Adding todos
-**Method: POST**
+Method: **POST**
 
 **URL:**
 ```
@@ -30,4 +30,33 @@ pip install -r requirements.txt
     "descricao": "Teste",
     "data": "04/04/2016"
 }
+```
+
+#### Todo List
+Method: **GET**
+
+**URL:**
+```
+  localhost:8000/todos/
+```
+
+**Response:**
+```
+[
+   {
+       "id": 1,
+       "descricao": "Teste 1",
+       "data": "01/01/2016"
+   },
+   {
+       "id": 2,
+       "descricao": "Teste 2",
+       "data": "02/02/2016"
+   },
+   {
+       "id": 3,
+       "descricao": "Teste 3",
+       "data": "03/03/2016"
+   }
+ ]
 ```
