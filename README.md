@@ -18,8 +18,7 @@ Method: **POST**
 **Body:**
 ```
 {
-    "id": 1,
-    "descricao": "Teste",
+    "descrição": "Teste",
     "data": "04/04/2016"
 }
 ```
@@ -90,7 +89,6 @@ Method: **PUT**
 **Body:**
 ```
 {
-       "id": 1,
        "descricao": "Teste 1 MODIFICADO",
        "data": "01/01/2016"
 }
