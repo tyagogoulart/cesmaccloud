@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.core.urlresolvers import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -16,6 +17,7 @@ class TesteCriarTodo(APITestCase):
     def teste_criar_todo(self):
         response = self.client.post('/todos/', self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response['Content-Type'], 'application/json')
         self.assertEqual(Todo.objects.count(), 1)
         self.assertEqual(Todo.objects.get().descricao, 'teste')
 
@@ -31,6 +33,7 @@ class TesteDeletarTodo(APITestCase):
     def teste_deletar_todo(self):
         response = self.client.delete('/todos/1/', content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(response['Content-Length'], '0')
 
 class TesteListarTodo(APITestCase):
     """
@@ -46,10 +49,13 @@ class TesteListarTodo(APITestCase):
         response = self.client.get('/todos/', args=[self.todo.id])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Todo.objects.get().descricao, 'teste')
+        self.assertEqual(response['Content-Type'], 'application/json')
+        
         
     def teste_listar_todos_all(self):
         response = self.client.get('/todos/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response['Content-Type'], 'application/json')
 
 class TesteModificarTodo(APITestCase):
     """
@@ -63,3 +69,6 @@ class TesteModificarTodo(APITestCase):
     def teste_modificar_todo(self):
         response = self.client.put('/todos/1/', {'descricao': 'teste modificado', 'data': '22/05/2016'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response['Content-Type'], 'application/json')
+        self.assertEqual(Todo.objects.get().descricao, 'teste modificado')
+        
