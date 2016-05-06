@@ -89,8 +89,9 @@ Method: **PUT**
 **Body:**
 ```
 {
-    "descricao": "Teste 1",
-    "data": "01/01/2016"
+       "id": 1,
+       "descricao": "Teste 1 MODIFICADO",
+       "data": "01/01/2016"
 }
 ```
 
