@@ -102,3 +102,9 @@ Method: **PUT**
        "data": "01/01/2016"
 }
 ```
+
+##Test
+To run the test you have to enter the line below on your project directory:
+```
+python manage.py test todos
+```
