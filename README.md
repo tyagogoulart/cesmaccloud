@@ -18,8 +18,9 @@ Method: **POST**
 **Body:**
 ```
 {
-    "descricao": "",
-    "data": null
+    "id": 1,
+    "descricao": "Teste",
+    "data": "04/04/2016"
 }
 ```
 
