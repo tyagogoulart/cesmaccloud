@@ -103,6 +103,19 @@ Method: **PUT**
 }
 ```
 
+#### Deleting a specific todo
+Method: **DELETE**
+
+**URL:**
+```
+  localhost:8000/todos/1
+```
+
+**Response:**
+``` 
+ 
+```
+
 ##Test
 To run the test you have to enter the line below on your project directory:
 ```
